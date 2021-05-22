@@ -6,5 +6,5 @@ build/
 src/main/gen
 src/main/resources/templates.list
 src/main/resources/gitignore/*
-/Readability Score/Problems/Adding values/out/production/classes/*.class
-/Readability Score/gradle/wrapper/*.jar
+*.class
+*.jar

@@ -1,0 +1,25 @@
+type: code
+files:
+- name: src/Main.java
+  visible: true
+  text: |-
+    public class Main {
+
+        public static void main(String[] args) {
+        // write your program here
+        }
+    }
+
+    /* sample enum for inspiration
+       enum Secret {
+        STAR, CRASH, START, // ...
+    }
+    */
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/11521
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/11521">JetBrains
+    Academy</a></html>
+  time: Sat, 22 May 2021 15:26:59 UTC
+record: -1
