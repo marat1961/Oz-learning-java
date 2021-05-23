@@ -1,0 +1,46 @@
+type: code
+files:
+- name: src/Main.java
+  visible: true
+  text: |-
+    import java.lang.reflect.Field;
+    /**
+     * Get value for a given public field or null if the field does not exist or is not accessible.
+     */
+    class FieldGetter {
+
+        public Object getFieldValue(Object object, String fieldName) throws IllegalAccessException {
+
+        }
+
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/2882
+status: Failed
+feedback:
+  message: |
+    Compilation error
+    Main.java:94: error: unreported exception NoSuchFieldException; must be caught or declared to be thrown
+            Assert.assertTrue(fieldGetter.getFieldValue(new Zero(0), "a") == null,
+                                                       ^
+    Main.java:96: error: unreported exception NoSuchFieldException; must be caught or declared to be thrown
+            Assert.assertTrue(fieldGetter.getFieldValue(new Zero(0), "b") == null,
+                                                       ^
+    Main.java:99: error: unreported exception NoSuchFieldException; must be caught or declared to be thrown
+            Assert.assertTrue(fieldGetter.getFieldValue(new One(0), "a")
+                                                       ^
+    Main.java:102: error: unreported exception NoSuchFieldException; must be caught or declared to be thrown
+            Assert.assertTrue(fieldGetter.getFieldValue(new Zero(0), "b") == null,
+                                                       ^
+    Main.java:105: error: unreported exception NoSuchFieldException; must be caught or declared to be thrown
+            Assert.assertTrue(fieldGetter.getFieldValue(new Two("aaa"), "string")
+                                                       ^
+    Main.java:108: error: unreported exception NoSuchFieldException; must be caught or declared to be thrown
+            Assert.assertTrue(fieldGetter.getFieldValue(new Two(""), "nofield") == null,
+                                                       ^
+    Main.java:110: error: unreported exception NoSuchFieldException; must be caught or declared to be thrown
+            Assert.assertTrue(fieldGetter.getFieldValue(new Two(null), "string") == null,
+                                                       ^
+    7 errors
+  time: Sun, 23 May 2021 08:31:16 UTC
+record: -1
