@@ -1,10 +1,16 @@
-import java.util.Arrays;        
+import java.util.Arrays;
 
 class Determiner {
 
     public static void determineWhoIsWho(Employee[] employees) {
         for (Employee employee : employees) {
-            System.out.println("EMP");
+            if (employee.getClass() == Employee.class) {
+                System.out.println("EMP");
+            } else if (employee.getClass() == Developer.class) {
+                System.out.println("DEV");
+            } else if (employee.getClass() == DataAnalyst.class) {
+                System.out.println("DA");
+            }
         }
     }
 }

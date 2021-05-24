@@ -3,10 +3,9 @@ package engine;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/quiz")
 public class QuizController {
 
-    @GetMapping()
+    @GetMapping("/api/quizzes/{id}")
     public Quiz getResponse() {
         String[] options = {"Robot", "Tea leaf", "Cup of coffee", "Bug"};
         Quiz r = new Quiz("The Java Logo",
@@ -15,7 +14,7 @@ public class QuizController {
         return r;
     }
 
-    @PostMapping()
+    @PostMapping(path = "/api/quiz")
     public Answer getLine(@RequestParam("answer") int answer) {
         Answer r;
         switch (answer) {

@@ -4,6 +4,15 @@ public class Quiz {
     String title;
     String text;
     String[] options;
+    int answer = -1;
+
+    public void setAnswer(int answer) {
+        this.answer = answer;
+    }
+
+    public int getAnswer() {
+        return answer;
+    }
 
     public Quiz(String title, String text, String[] options) {
         this.title = title;
