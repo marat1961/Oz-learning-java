@@ -1,23 +1,21 @@
 package engine;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({"title", "text", "options"})
 public class Quiz {
     String title;
     String text;
     String[] options;
-    int answer = -1;
+    @JsonIgnore
+    private int answer;
 
-    public void setAnswer(int answer) {
-        this.answer = answer;
-    }
-
-    public int getAnswer() {
-        return answer;
-    }
-
-    public Quiz(String title, String text, String[] options) {
+    public Quiz(String title, String text, String[] options, int answer) {
         this.title = title;
         this.text = text;
         this.options = options;
+        this.answer = answer;
     }
 
     public String getTitle() {
@@ -42,5 +40,13 @@ public class Quiz {
 
     public void setOptions(String[] options) {
         this.options = options;
+    }
+
+    public int geAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(int answer) {
+        this.answer = answer;
     }
 }
