@@ -351,6 +351,47 @@ files:
         }
     }
   learner_created: true
+- name: src/engine/persistence/QuizService.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/91/stages/505/implement
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #1
+
+    GET /api/quizzes should respond with status code 200, responded: 404
+
+    Response body:
+
+    {&quot;timestamp&quot;:&quot;2021-05-27T16:20:55.630+0000&quot;,&quot;status&quot;:404,&quot;error&quot;:&quot;Not Found&quot;,&quot;message&quot;:&quot;No message available&quot;,&quot;path&quot;:&quot;/api/quizzes&quot;}
+
+    Please find below the output of your program during this failed test.
+
+    ---
+
+
+      .   ____          _            __ _ _
+     /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+    ( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+     \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+      &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+     =========|_|==============|___/=/_/_/_/
+     :: Spring Boot ::        (v2.2.2.RELEASE)
+
+    2021-05-27 23:20:51.029  INFO 12312 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on DESKTOP-3F4SLD8 with PID 12312 (started by oz in D:\Work\Java11\Web Quiz Engine)
+    2021-05-27 23:20:51.043  INFO 12312 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default
+    2021-05-27 23:20:53.205  INFO 12312 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+    2021-05-27 23:20:53.224  INFO 12312 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+    2021-05-27 23:20:53.225  INFO 12312 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+    2021-05-27 23:20:53.434  INFO 12312 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+    2021-05-27 23:20:53.435  INFO 12312 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2288 ms
+    2021-05-27 23:20:54.117  INFO 12312 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#39;applicationTaskExecutor&#39;
+    2021-05-27 23:20:54.782  INFO 12312 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path &#39;/actuator&#39;
+    2021-05-27 23:20:54.903  INFO 12312 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path &#39;&#39;
+    2021-05-27 23:20:54.914  INFO 12312 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 4.658 seconds (JVM running for 5.944)
+    2021-05-27 23:20:55.546  INFO 12312 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &#39;dispatcherServlet&#39;
+    2021-05-27 23:20:55.547  INFO 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;dispatcherServlet&#39;
+    2021-05-27 23:20:55.561  INFO 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+  time: Thu, 27 May 2021 16:20:56 UTC
 record: 2

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({"title", "text", "options"})
 public class Quiz {
+    private long id;
     String title;
     String text;
     String[] options;
@@ -16,6 +17,14 @@ public class Quiz {
         this.text = text;
         this.options = options;
         this.answer = answer;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
