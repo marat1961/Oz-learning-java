@@ -1,16 +1,19 @@
 package engine;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonPropertyOrder({"title", "text", "options"})
 public class Quiz {
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private long id;
-    String title;
-    String text;
-    String[] options;
+    private String title;
+    private String text;
+    private String[] options;
     @JsonIgnore
     private int answer;
+
+    public Quiz() {
+    }
 
     public Quiz(String title, String text, String[] options, int answer) {
         this.title = title;
