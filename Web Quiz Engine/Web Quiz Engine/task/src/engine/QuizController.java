@@ -39,4 +39,9 @@ public class QuizController {
          return quizService.add(quiz);
      }
 
+    @GetMapping("/quizzes/{id}")
+    public Quiz getQuizById(@RequestParam("id") int id) {
+        return quizService.getById(id);
+    }
+
 }
