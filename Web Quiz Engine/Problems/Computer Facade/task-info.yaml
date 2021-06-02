@@ -1,0 +1,107 @@
+type: code
+files:
+- name: src/Main.java
+  visible: true
+  text: |-
+    class ComputerFacadeTestDrive {
+        public static void main(String[] args) {
+            /* Your subsystems */
+
+            ComputerFacade computerFacade = /* Write your code here */
+
+            computerFacade.turnOnComputer();
+            computerFacade.turnOffComputer();
+        }
+    }
+
+    class ComputerFacade {
+        /* Your subsystems */
+
+        public ComputerFacade(/* Write your code here */) {
+            /* Write your code here */
+        }
+
+        public void turnOnComputer() {
+            /* Write your code here */
+        }
+
+        public void turnOffComputer() {
+            /* Write your code here */
+        }
+    }
+
+    class Processor {
+        /* Your subsystem description */
+
+        public void on() {
+            /* Write your code here */
+        }
+
+        public void off() {
+            /* Write your code here */
+        }
+    }
+
+    class Monitor {
+        /* Your subsystem description */
+
+        public void on() {
+            /* Write your code here */
+        }
+
+        public void off() {
+            /* Write your code here */
+        }
+    }
+
+    class Keyboard {
+        /* Your subsystem description */
+
+        public void on() {
+            /* Write your code here */
+        }
+
+        public void off() {
+            /* Write your code here */
+        }
+
+        private void turnOnBacklight() {
+            /* Write your code here */
+        }
+
+        private void turnOffBacklight() {
+            /* Write your code here */
+        }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/5532
+status: Failed
+feedback:
+  message: |
+    Failed. Wrong answer
+
+    This is a sample test from the problem statement!
+
+    Test input:
+
+    Correct output:
+    Processor on
+    Monitor on
+    Keyboard on
+    Backlight is turned on
+    Keyboard off
+    Backlight is turned off
+    Monitor off
+    Processor off
+
+    Your code output:
+    Processor on
+    Monitor on
+    Backlight is turned on
+    Keyboard on
+    Keyboard off
+    Backlight is turned off
+    Monitor off
+    Processor off
+  time: Wed, 02 Jun 2021 16:49:26 UTC
+record: -1
