@@ -25,5 +25,9 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/3003
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/3003">JetBrains
+    Academy</a></html>
+  time: Tue, 01 Jun 2021 15:05:42 UTC
 record: -1
