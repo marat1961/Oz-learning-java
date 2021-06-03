@@ -75,33 +75,9 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/5532
-status: Failed
+status: Solved
 feedback:
-  message: |
-    Failed. Wrong answer
-
-    This is a sample test from the problem statement!
-
-    Test input:
-
-    Correct output:
-    Processor on
-    Monitor on
-    Keyboard on
-    Backlight is turned on
-    Keyboard off
-    Backlight is turned off
-    Monitor off
-    Processor off
-
-    Your code output:
-    Processor on
-    Monitor on
-    Backlight is turned on
-    Keyboard on
-    Keyboard off
-    Backlight is turned off
-    Monitor off
-    Processor off
-  time: Wed, 02 Jun 2021 16:49:26 UTC
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/5532">JetBrains
+    Academy</a></html>
+  time: Wed, 02 Jun 2021 16:54:39 UTC
 record: -1

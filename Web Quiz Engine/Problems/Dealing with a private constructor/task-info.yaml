@@ -1,0 +1,19 @@
+type: code
+files:
+- name: src/Main.java
+  visible: true
+  text: |-
+    class InstanceUtils {
+
+        public static Person createPerson(String name, int age) {
+            return null;
+        }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/12621
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/12621">JetBrains
+    Academy</a></html>
+  time: Thu, 03 Jun 2021 18:04:37 UTC
+record: -1

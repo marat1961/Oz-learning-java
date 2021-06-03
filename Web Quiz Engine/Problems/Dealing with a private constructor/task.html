@@ -1,0 +1,27 @@
+<h2>Dealing with a private constructor</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Here you need to apply your knowledge of reflection to create an instance of a class with private constructors. The class has two fields, two constructors and two getters:</p> 
+  <pre><code class="java">class Person {
+    private String name = "unknown";
+    private int age;
+
+    private Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    private Person(int age) {
+        this.age = age;
+    }
+
+    // getters
+}</code></pre> 
+  <p>Implement the <code class="java">createPerson</code> method that must return an object of the <code class="java">Person</code> class based on the passed name and age.</p>
+ </body>
+</html><br><br><font color="gray">Memory limit: 256 MB</font><br><font color="gray">Time limit: 8 seconds</font><br><br>
+<b>Caution</b><br><br>
+You may see errors in your code or in execution results because of missing context. Don't mind those; simply write your solution and click Check.
+<br><br>
+<a href="https://hyperskill.org/learn/step/8116">Show topic summary</a>
