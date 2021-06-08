@@ -80,3 +80,8 @@ content:
 - What class loader is used
 - Constructor Checker
 - Dealing with a private constructor
+- Motor static factory
+- Clock factory
+- Static factory methods for Time
+- Print strings in the reverse order
+- Generating passwords

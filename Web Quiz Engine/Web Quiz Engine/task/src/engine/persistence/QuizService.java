@@ -22,5 +22,6 @@ public class QuizService {
 
     public Quiz getById(int id) {
         return quizzes.get(id);
+        // http://localhost:8080/api/quizzes/{id}?id=2
     }
 }
