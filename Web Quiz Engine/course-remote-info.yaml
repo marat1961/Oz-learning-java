@@ -52,6 +52,12 @@ topics:
     theory_id: 6752
   - title: REST
     theory_id: 7834
+  - title: HTML basics
+    theory_id: 6434
+  - title: Tags and attributes
+    theory_id: 7536
+  - title: HTML page structure
+    theory_id: 6491
   - title: Introduction to Spring boot
     theory_id: 7944
   - title: Postman
@@ -62,6 +68,8 @@ topics:
     theory_id: 6336
   - title: Basic project structure
     theory_id: 6339
+  - title: Introduction to Spring Web MVC
+    theory_id: 13611
   - title: Getting data from REST
     theory_id: 13287
   - title: Posting and deleting data via REST
@@ -246,7 +254,7 @@ topics:
   2:
   - title: Exception handling
     theory_id: 8780
-  - title: Bean Validation
+  - title: Bean validation
     theory_id: 9355
   - title: Regexps basics
     theory_id: 7580
@@ -271,12 +279,28 @@ topics:
     theory_id: 8762
   - title: Introduction to JPA
     theory_id: 8771
-  - title: JPA Relationships
+  - title: JPA relationships
     theory_id: 8936
+  - title: CRUD repositories
+    theory_id: 9536
   - title: Data and object mapping
     theory_id: 8262
   - title: Object-Relational Mapping (ORM)
     theory_id: 8312
+  - title: Lambda expressions
+    theory_id: 11635
+  - title: Method references
+    theory_id: 3620
+  - title: Functional interfaces
+    theory_id: 11636
+  - title: Standard functional interfaces
+    theory_id: 3623
+  - title: Optional
+    theory_id: 9699
+  - title: Default methods
+    theory_id: 11354
+  - title: Anonymous classes
+    theory_id: 11896
   5:
   - title: Lambda expressions
     theory_id: 11635

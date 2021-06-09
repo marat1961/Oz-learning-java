@@ -1,27 +1,21 @@
 package engine;
 
 public class Answer {
-    Boolean success;
-    String feedback;
 
-    public Answer(Boolean success, String feedback) {
-        this.success = success;
-        this.feedback = feedback;
+    private Integer answer;
+
+    public Answer() {
     }
 
-    public Boolean getSuccess() {
-        return success;
+    public Answer(int answer) {
+        this.answer = answer;
     }
 
-    public String getFeedback() {
-        return feedback;
+    public Integer getAnswer() {
+        return answer;
     }
 
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
+    public void setAnswer(Integer answer) {
+        this.answer = answer;
     }
 }

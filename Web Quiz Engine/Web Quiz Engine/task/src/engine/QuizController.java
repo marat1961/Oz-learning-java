@@ -4,6 +4,9 @@ import engine.persistence.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class QuizController {
@@ -25,23 +28,34 @@ public class QuizController {
     }
 
     @PostMapping("/quiz")
-    public Answer getLine(@RequestParam("answer") int answer) {
-        Answer r;
+    public Response getLine(@RequestParam("answer") int answer) {
+        Response r;
         if (answer == 2) {
-            return new Answer(true, "Congratulations, you're right!");
+            return new Response(true);
         } else {
-            return new Answer(false, "Wrong answer! Please, try again.");
+            return new Response(false);
         }
     }
 
-     @PostMapping(value = "/quizzes", consumes = "application/json")
-     public Quiz CreateQuiz(@RequestBody Quiz quiz) {
-         return quizService.add(quiz);
-     }
+    @PostMapping(value = "/quizzes", consumes = "application/json")
+    public Quiz CreateQuiz(@RequestBody Quiz quiz) {
+        return quizService.add(quiz);
+    }
 
     @GetMapping("/quizzes/{id}")
     public Quiz getQuizById(@RequestParam("id") int id) {
-        return quizService.getById(id);
+        Quiz quiz = quizService.getById(id);
+        return quiz;
+    }
+
+    @GetMapping("/quizzes")
+    public List<Quiz> getQuizzes() {
+        return quizService.getQuizzes();
+    }
+
+    @PostMapping(value = "/quizzes/{id}/solve")
+    public Response solveQuiz(@PathVariable long id, @RequestBody Answer userAnswer) {
+        return quizService.solve(id, userAnswer);
     }
 
 }

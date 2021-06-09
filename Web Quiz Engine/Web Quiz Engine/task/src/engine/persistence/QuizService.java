@@ -1,8 +1,13 @@
 package engine.persistence;
 
+import engine.Answer;
 import engine.Quiz;
+import engine.Response;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.TreeMap;
 
 @Service
@@ -17,11 +22,28 @@ public class QuizService {
     public Quiz add(Quiz quiz) {
         Integer lastId = quizzes.size() > 0 ? quizzes.lastKey() : 1;
         quiz.setId(lastId);
+        quizzes.put(lastId, quiz);
         return quiz;
     }
 
     public Quiz getById(int id) {
-        return quizzes.get(id);
-        // http://localhost:8080/api/quizzes/{id}?id=2
+        Quiz quiz = quizzes.get(id);
+        if (quiz != null) {
+            return quiz;
+        } else {
+            throw new QuizNotFoundException();
+        }
+    }
+
+    public List<Quiz> getQuizzes() {
+        List<Quiz> list = new ArrayList<>();
+        list.addAll(quizzes.values());
+        return list;
+    }
+
+    public Response solve(long id, Answer answer) {
+        Quiz quiz = quizzes.get(id);
+        boolean ok = (quiz != null && quiz.geAnswer() == answer.getAnswer());
+        return new Response(ok);
     }
 }

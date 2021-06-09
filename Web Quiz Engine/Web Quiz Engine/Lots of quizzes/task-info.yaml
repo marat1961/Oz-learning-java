@@ -354,17 +354,23 @@ files:
 - name: src/engine/persistence/QuizService.java
   visible: true
   learner_created: true
+- name: src/engine/persistence/QuizNotFoundException.java
+  visible: true
+  learner_created: true
+- name: src/engine/Response.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/91/stages/505/implement
 status: Failed
 feedback:
   message: |-
-    Wrong answer in test #1
+    Wrong answer in test #3
 
-    GET /api/quizzes should respond with status code 200, responded: 404
+    GET /api/quizzes/1 should respond with status code 200, responded: 400
 
     Response body:
 
-    {&quot;timestamp&quot;:&quot;2021-05-27T16:20:55.630+0000&quot;,&quot;status&quot;:404,&quot;error&quot;:&quot;Not Found&quot;,&quot;message&quot;:&quot;No message available&quot;,&quot;path&quot;:&quot;/api/quizzes&quot;}
+    {&quot;timestamp&quot;:&quot;2021-06-07T18:21:13.262+0000&quot;,&quot;status&quot;:400,&quot;error&quot;:&quot;Bad Request&quot;,&quot;message&quot;:&quot;Required int parameter &#39;id&#39; is not present&quot;,&quot;path&quot;:&quot;/api/quizzes/1&quot;}
 
     Please find below the output of your program during this failed test.
 
@@ -379,19 +385,20 @@ feedback:
      =========|_|==============|___/=/_/_/_/
      :: Spring Boot ::        (v2.2.2.RELEASE)
 
-    2021-05-27 23:20:51.029  INFO 12312 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on DESKTOP-3F4SLD8 with PID 12312 (started by oz in D:\Work\Java11\Web Quiz Engine)
-    2021-05-27 23:20:51.043  INFO 12312 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default
-    2021-05-27 23:20:53.205  INFO 12312 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-    2021-05-27 23:20:53.224  INFO 12312 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-    2021-05-27 23:20:53.225  INFO 12312 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-    2021-05-27 23:20:53.434  INFO 12312 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-    2021-05-27 23:20:53.435  INFO 12312 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2288 ms
-    2021-05-27 23:20:54.117  INFO 12312 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#39;applicationTaskExecutor&#39;
-    2021-05-27 23:20:54.782  INFO 12312 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path &#39;/actuator&#39;
-    2021-05-27 23:20:54.903  INFO 12312 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path &#39;&#39;
-    2021-05-27 23:20:54.914  INFO 12312 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 4.658 seconds (JVM running for 5.944)
-    2021-05-27 23:20:55.546  INFO 12312 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &#39;dispatcherServlet&#39;
-    2021-05-27 23:20:55.547  INFO 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;dispatcherServlet&#39;
-    2021-05-27 23:20:55.561  INFO 12312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
-  time: Thu, 27 May 2021 16:20:56 UTC
+    2021-06-08 01:21:08.151  INFO 14992 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on DESKTOP-3F4SLD8 with PID 14992 (started by oz in D:\Work\Java11\Web Quiz Engine\Web Quiz Engine\task)
+    2021-06-08 01:21:08.158  INFO 14992 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default
+    2021-06-08 01:21:10.577  INFO 14992 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
+    2021-06-08 01:21:10.595  INFO 14992 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+    2021-06-08 01:21:10.596  INFO 14992 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+    2021-06-08 01:21:10.801  INFO 14992 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+    2021-06-08 01:21:10.801  INFO 14992 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2456 ms
+    2021-06-08 01:21:11.558  INFO 14992 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#39;applicationTaskExecutor&#39;
+    2021-06-08 01:21:12.166  INFO 14992 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path &#39;/actuator&#39;
+    2021-06-08 01:21:12.342  INFO 14992 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path &#39;&#39;
+    2021-06-08 01:21:12.355  INFO 14992 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 5.139 seconds (JVM running for 6.462)
+    2021-06-08 01:21:12.910  INFO 14992 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &#39;dispatcherServlet&#39;
+    2021-06-08 01:21:12.912  INFO 14992 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;dispatcherServlet&#39;
+    2021-06-08 01:21:12.927  INFO 14992 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+    2021-06-08 01:21:13.232  WARN 14992 --- [nio-8889-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required int parameter &#39;id&#39; is not present]
+  time: Mon, 07 Jun 2021 18:21:14 UTC
 record: 2

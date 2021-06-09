@@ -9,9 +9,6 @@ files:
         }
     }
   learner_created: false
-- name: src/CryptoUtils.java
-  visible: true
-  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/2187
 status: Solved
 feedback:
