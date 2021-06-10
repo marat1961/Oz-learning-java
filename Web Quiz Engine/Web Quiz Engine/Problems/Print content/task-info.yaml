@@ -1,0 +1,22 @@
+type: code
+files:
+- name: src/Main.java
+  visible: true
+  text: |-
+    // do not remove imports
+    import java.util.ArrayList;
+    import java.util.List;
+    import java.util.Scanner;
+    import java.util.function.Function;
+
+    class ArrayUtils {
+        // define info method here
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/11023
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/11023">JetBrains
+    Academy</a></html>
+  time: Wed, 26 May 2021 02:09:21 UTC
+record: -1

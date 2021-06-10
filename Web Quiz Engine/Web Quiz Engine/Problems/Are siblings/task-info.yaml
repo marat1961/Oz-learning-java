@@ -1,0 +1,33 @@
+type: code
+custom_name: Are siblings?
+files:
+- name: src/Main.java
+  visible: true
+  text: |-
+    import java.io.File;
+
+    class Siblings {
+
+        public static boolean areSiblings(File f1, File f2) {
+            // implement me
+        }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/8095
+status: Failed
+feedback:
+  message: |
+    Failed test #1 of 2. Wrong answer
+
+    This is a sample test from the problem statement!
+
+    Test input:
+    dir/file1.txt
+    dir/file2.txt
+    Correct output:
+    true
+
+    Your code output:
+    false
+  time: Sat, 08 May 2021 18:01:38 UTC
+record: -1
