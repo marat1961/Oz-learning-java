@@ -9,7 +9,7 @@ stages:
   is_completed: true
 - id: 505
   step: 8253
-  is_completed: false
+  is_completed: true
 - id: 506
   step: 8254
   is_completed: false
@@ -273,6 +273,8 @@ topics:
     theory_id: 13025
   - title: Introduction to databases
     theory_id: 8497
+  - title: Relational Data Model
+    theory_id: 13785
   - title: What is SQL
     theory_id: 7054
   - title: H2 database
@@ -312,3 +314,6 @@ topics:
     theory_id: 11354
   - title: Anonymous classes
     theory_id: 11896
+  4:
+  - title: Getting started with Spring Security
+    theory_id: 13856

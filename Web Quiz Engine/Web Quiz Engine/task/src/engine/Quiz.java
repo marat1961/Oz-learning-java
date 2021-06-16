@@ -2,6 +2,8 @@ package engine;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.constraints.Min;
+import java.util.Set;
 
 public class Quiz {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
@@ -9,13 +11,13 @@ public class Quiz {
     private String title;
     private String text;
     private String[] options;
-    @JsonIgnore
-    private int answer;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Integer answer;
 
     public Quiz() {
     }
 
-    public Quiz(String title, String text, String[] options, int answer) {
+    public Quiz(String title, String text, String[] options, Integer answer) {
         this.title = title;
         this.text = text;
         this.options = options;
@@ -54,11 +56,13 @@ public class Quiz {
         this.options = options;
     }
 
-    public int geAnswer() {
+    @JsonIgnore
+    public Integer getAnswer() {
         return answer;
     }
 
-    public void setAnswer(int answer) {
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    public void setAnswer(Integer answer) {
         this.answer = answer;
     }
 }

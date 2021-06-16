@@ -2,31 +2,29 @@ package engine.persistence;
 
 import engine.Answer;
 import engine.Quiz;
-import engine.Response;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.TreeMap;
 
 @Service
 public class QuizService {
 
-    TreeMap<Integer, Quiz> quizzes;
+    TreeMap<Long, Quiz> quizzes;
 
     public QuizService() {
         quizzes = new TreeMap<>();
     }
 
     public Quiz add(Quiz quiz) {
-        Integer lastId = quizzes.size() > 0 ? quizzes.lastKey() : 1;
+        Long lastId = quizzes.size() > 0 ? quizzes.lastKey() + 1 : 1;
         quiz.setId(lastId);
         quizzes.put(lastId, quiz);
         return quiz;
     }
 
-    public Quiz getById(int id) {
+    public Quiz getById(Long id) {
         Quiz quiz = quizzes.get(id);
         if (quiz != null) {
             return quiz;
@@ -41,9 +39,11 @@ public class QuizService {
         return list;
     }
 
-    public Response solve(long id, Answer answer) {
-        Quiz quiz = quizzes.get(id);
-        boolean ok = (quiz != null && quiz.geAnswer() == answer.getAnswer());
-        return new Response(ok);
+    public boolean solve(Long id, Answer answer) {
+        Quiz quiz = getById(id);
+        Integer a = answer.getAnswer();
+        Integer qa = quiz.getAnswer();
+        System.out.println("a=" +a + ", qa=" + qa);
+        return a == qa;
     }
 }

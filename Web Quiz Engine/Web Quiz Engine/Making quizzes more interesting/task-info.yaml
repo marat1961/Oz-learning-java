@@ -440,6 +440,272 @@ files:
         }
     }
   learner_created: false
+- name: src/engine/Answer.java
+  visible: true
+  text: |
+    package engine;
+
+    import java.util.Set;
+
+    public class Answer {
+
+        private Integer answer;
+
+        public Answer() {
+        }
+
+        public Answer(Integer answer) {
+            this.answer = answer;
+        }
+
+        public Integer getAnswer() {
+            return answer;
+        }
+
+        public void setAnswer(Integer answer) {
+            this.answer = answer;
+        }
+    }
+  learner_created: true
+- name: src/engine/Quiz.java
+  visible: true
+  text: |
+    package engine;
+
+    import com.fasterxml.jackson.annotation.JsonIgnore;
+    import com.fasterxml.jackson.annotation.JsonProperty;
+    import javax.validation.constraints.Min;
+    import java.util.Set;
+
+    public class Quiz {
+        @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+        private long id;
+        private String title;
+        private String text;
+        private String[] options;
+        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+        private Integer answer;
+
+        public Quiz() {
+        }
+
+        public Quiz(String title, String text, String[] options, Integer answer) {
+            this.title = title;
+            this.text = text;
+            this.options = options;
+            this.answer = answer;
+        }
+
+        public long getId() {
+            return id;
+        }
+
+        public void setId(long id) {
+            this.id = id;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public String[] getOptions() {
+            return options;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+
+        public void setOptions(String[] options) {
+            this.options = options;
+        }
+
+        @JsonIgnore
+        public Integer getAnswer() {
+            return answer;
+        }
+
+        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+        public void setAnswer(Integer answer) {
+            this.answer = answer;
+        }
+    }
+  learner_created: true
+- name: src/engine/QuizController.java
+  visible: true
+  text: |-
+    package engine;
+
+    import engine.persistence.QuizService;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.boot.context.properties.bind.DefaultValue;
+    import org.springframework.http.HttpStatus;
+    import org.springframework.validation.annotation.Validated;
+    import org.springframework.web.bind.annotation.*;
+
+    import javax.validation.Valid;
+    import java.util.*;
+
+    @RestController
+    @Validated
+    @RequestMapping("/api")
+    public class QuizController {
+
+        private final QuizService quizService;
+
+        @Autowired
+        public QuizController(QuizService quizService) {
+            this.quizService = quizService;
+        }
+
+        @PostMapping(value = "/quizzes", consumes = "application/json")
+        public Quiz CreateQuiz(@RequestBody Quiz quiz) {
+            return quizService.add(quiz);
+        }
+
+        @GetMapping("/quizzes/{id}")
+        public Quiz getQuizById(@PathVariable("id") Long id) {
+            Quiz quiz = quizService.getById(id);
+            return quiz;
+        }
+
+        @GetMapping("/quizzes")
+        public List<Quiz> getQuizzes() {
+            return quizService.getQuizzes();
+        }
+
+        @PostMapping(value = "/quizzes/{id}/solve")
+        public Response solveQuiz(@PathVariable Long id, @RequestBody String s) {
+            System.out.println(s);
+            String[] a = s.split("=");
+            Integer r = a.length > 1 ? Integer.parseInt(a[1]) : -1;
+            Answer answer = new Answer(r);
+            if (quizService.solve(id, answer)) {
+                return new Response(true);
+            }
+            return new Response(false);
+        }
+
+    }
+  learner_created: true
+- name: src/engine/persistence/QuizNotFoundException.java
+  visible: true
+  text: |
+    package engine.persistence;
+
+    import org.springframework.http.HttpStatus;
+    import org.springframework.web.bind.annotation.ResponseStatus;
+
+    @ResponseStatus(code = HttpStatus.NOT_FOUND)
+    public class QuizNotFoundException extends RuntimeException {
+        public QuizNotFoundException() {
+            super("Quiz not found !");
+        }
+    }
+  learner_created: true
+- name: src/engine/persistence/QuizService.java
+  visible: true
+  text: |
+    package engine.persistence;
+
+    import engine.Answer;
+    import engine.Quiz;
+    import org.springframework.stereotype.Service;
+
+    import java.util.ArrayList;
+    import java.util.List;
+    import java.util.TreeMap;
+
+    @Service
+    public class QuizService {
+
+        TreeMap<Long, Quiz> quizzes;
+
+        public QuizService() {
+            quizzes = new TreeMap<>();
+        }
+
+        public Quiz add(Quiz quiz) {
+            Long lastId = quizzes.size() > 0 ? quizzes.lastKey() + 1 : 1;
+            quiz.setId(lastId);
+            quizzes.put(lastId, quiz);
+            return quiz;
+        }
+
+        public Quiz getById(Long id) {
+            Quiz quiz = quizzes.get(id);
+            if (quiz != null) {
+                return quiz;
+            } else {
+                throw new QuizNotFoundException();
+            }
+        }
+
+        public List<Quiz> getQuizzes() {
+            List<Quiz> list = new ArrayList<>();
+            list.addAll(quizzes.values());
+            return list;
+        }
+
+        public boolean solve(Long id, Answer answer) {
+            Quiz quiz = getById(id);
+            Integer a = answer.getAnswer();
+            Integer qa = quiz.getAnswer();
+            System.out.println("a=" +a + ", qa=" + qa);
+            return a == qa;
+        }
+    }
+  learner_created: true
+- name: src/engine/Response.java
+  visible: true
+  text: |
+    package engine;
+
+    public class Response {
+        public static final String Ok = "Congratulations, you're right!";
+        public static final String Bad ="Wrong answer! Please, try again.";
+
+        private boolean success;
+        private String feedback;
+
+        public Response() {
+            new Response(true);
+        }
+
+        public Response(boolean success) {
+            this.success = success;
+            if (success) {
+                this.feedback = Ok;
+            } else {
+                this.feedback = Bad;
+            }
+        }
+
+        public boolean isSuccess() {
+            return success;
+        }
+
+        public void setSuccess(boolean success) {
+            this.success = success;
+        }
+
+        public String getFeedback() {
+            return feedback;
+        }
+
+        public void setFeedback(String feedback) {
+            this.feedback = feedback;
+        }
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/91/stages/506/implement
 status: Unchecked
 record: -1

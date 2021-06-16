@@ -1,5 +1,7 @@
 package engine;
 
+import java.util.Set;
+
 public class Answer {
 
     private Integer answer;
@@ -7,7 +9,7 @@ public class Answer {
     public Answer() {
     }
 
-    public Answer(int answer) {
+    public Answer(Integer answer) {
         this.answer = answer;
     }
 
